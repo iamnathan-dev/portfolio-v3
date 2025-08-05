@@ -59,7 +59,7 @@ export default function Navbar() {
               style={{ lineHeight: 2 }}
               className="rounded-full shadow-none mr-[80px] !h-[60px] w-[200px] font-semibold text-2xl border-3 dark:border-white border-black relative cursor-pointer backdrop-blur-sm bg-transparent gap-x-2 overflow-hidden"
             >
-              <AnimatedHoverText>Contact</AnimatedHoverText>
+              <AnimatedHoverText>Say Hello</AnimatedHoverText>
             </Button>
           </motion.div>
           <div className={styles.header}>
