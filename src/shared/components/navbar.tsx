@@ -8,6 +8,7 @@ import HambugerMenu from "./hambugerMenu";
 import CurvedMenu from "./curvedMenu";
 import { Button } from "@/components/ui/button";
 import { Moon } from "lucide-react";
+import AnimatedHoverText from "./animatedText";
 
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -58,53 +59,7 @@ export default function Navbar() {
               style={{ lineHeight: 2 }}
               className="rounded-full shadow-none mr-[80px] !h-[60px] w-[200px] font-semibold text-2xl border-3 dark:border-white border-black relative cursor-pointer backdrop-blur-sm bg-transparent gap-x-2 overflow-hidden"
             >
-              <div>
-                {"Contact".split("").map((l, i) => (
-                  <motion.span
-                    variants={{
-                      initial: {
-                        y: 0,
-                      },
-                      hovered: {
-                        y: "-100%",
-                      },
-                    }}
-                    transition={{
-                      duration: DURATION,
-                      ease: "easeInOut",
-                      delay: STAGGER * i,
-                    }}
-                    className="inline-block"
-                    key={i}
-                  >
-                    {l}
-                  </motion.span>
-                ))}
-              </div>
-
-              <div className="absolute inset-0">
-                {"Contact".split("").map((l, i) => (
-                  <motion.span
-                    variants={{
-                      initial: {
-                        y: "100%",
-                      },
-                      hovered: {
-                        y: 0,
-                      },
-                    }}
-                    transition={{
-                      duration: DURATION,
-                      ease: "easeInOut",
-                      delay: STAGGER * i,
-                    }}
-                    className="inline-block"
-                    key={i}
-                  >
-                    {l}
-                  </motion.span>
-                ))}
-              </div>
+              <AnimatedHoverText>Contact</AnimatedHoverText>
             </Button>
           </motion.div>
           <div className={styles.header}>

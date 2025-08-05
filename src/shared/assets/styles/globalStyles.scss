@@ -3,6 +3,11 @@
   animation: bounce 3s ease-in-out infinite;
 }
 
+.pulse {
+  display: inline-block; /* Ensures each character is treated as a block for animation */
+  animation: pulse 3s ease-in-out infinite;
+}
+
 @keyframes bounce {
   0%,
   100% {
@@ -10,5 +15,15 @@
   }
   50% {
     transform: translateY(-15px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.045);
   }
 }

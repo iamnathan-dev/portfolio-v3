@@ -34,7 +34,7 @@ const AnimatedHoverText = ({
             className="inline-block"
             key={i}
           >
-            {children}
+            {l}
           </motion.span>
         ))}
       </div>
