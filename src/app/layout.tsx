@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Funnel_Display } from "next/font/google";
 import "./globals.css";
+import "@/shared/assets/styles/globalStyles.scss";
 import Navbar from "@/shared/components/navbar";
 import { ThemeProvider } from "next-themes";
 
@@ -24,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${funnelDisplay.className} antialiased dark:bg-[#161616]`}
+        className={`${funnelDisplay.className} antialiased dark:bg-[#161616] overflow-x-hidden`}
       >
         <ThemeProvider>
           <Navbar />

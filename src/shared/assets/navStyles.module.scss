@@ -1,9 +1,12 @@
 .header {
   position: fixed;
-  right: 50px;
-  top: 50px;
+  z-index: 9999;
+  right: 80px;
+  top: 40px;
   .menu {
-    background-color: #c9fd74;
+    width: 1000px;
+    height: 650px;
+    background-color: white;
     border-radius: 25px;
     position: relative;
   }
@@ -12,16 +15,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 100px 40px 50px 40px;
+    padding: 50px;
     height: 90%;
     box-sizing: border-box;
     .body {
       display: flex;
       gap: 10px;
+      height: 90%;
       flex-direction: column;
       .linkContainer {
-        perspective: 120px;
-        perspective-origin: bottom;
+        display: flex;
+        flex-wrap: wrap;
       }
       a {
         text-decoration: none;
@@ -38,52 +42,54 @@
       }
     }
   }
+}
 
-  .button {
-    width: 80px;
-    z-index: 999;
-    height: 80px;
-    border-radius: 50%;
-    position: absolute;
-    background-color: #c9fd74;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.burger {
+  width: 100%;
+  &::after,
+  &::before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 50%;
+    margin: auto;
+    background-color: black;
+    position: relative;
+    transition: transform 0.3s;
   }
 
-  .burger {
-    width: 100%;
-    &::after,
-    &::before {
-      content: "";
-      display: block;
-      height: 1px;
-      width: 40%;
-      margin: auto;
-      background-color: black;
-      position: relative;
-      transition: transform 0.3s;
-    }
-
-    &::after {
-      top: -5px;
-    }
-
-    &::before {
-      top: 5px;
-    }
+  &::after {
+    top: -5px;
   }
 
-  .burgerActive {
-    &::after {
-      transform: rotate(45deg);
-      top: -1px;
-    }
+  &::before {
+    top: 5px;
+  }
+}
 
-    &::before {
-      transform: rotate(-45deg);
-      top: 0px;
-    }
+.burgerActive {
+  &::after {
+    transform: rotate(45deg);
+    top: -1px;
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+    top: 0px;
   }
 }

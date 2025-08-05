@@ -1,3 +1,9 @@
+import Hero from "./component/her";
+
 export const HomePage = () => {
-  return <div className="">Home Page</div>;
+  return (
+    <main>
+      <Hero />
+    </main>
+  );
 };

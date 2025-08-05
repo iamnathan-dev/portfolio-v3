@@ -17,14 +17,14 @@ export const navbarData: NavbarDataProps[] = [
     href: "/projects",
   },
   {
-    title: "Services",
-    href: "/services",
+    title: "Contact",
+    href: "/contact",
   },
 ];
 
 export const footerLinks: NavbarDataProps[] = [
   {
-    title: "Facebook",
+    title: "Github",
     href: "/",
   },
   {
@@ -36,7 +36,7 @@ export const footerLinks: NavbarDataProps[] = [
     href: "/",
   },
   {
-    title: "Twitter",
+    title: "X (Twitter)",
     href: "/",
   },
 ];
