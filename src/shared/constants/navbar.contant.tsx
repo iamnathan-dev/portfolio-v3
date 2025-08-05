@@ -21,3 +21,22 @@ export const navbarData: NavbarDataProps[] = [
     href: "/services",
   },
 ];
+
+export const footerLinks: NavbarDataProps[] = [
+  {
+    title: "Facebook",
+    href: "/",
+  },
+  {
+    title: "LinkedIn",
+    href: "/",
+  },
+  {
+    title: "Instagram",
+    href: "/",
+  },
+  {
+    title: "Twitter",
+    href: "/",
+  },
+];

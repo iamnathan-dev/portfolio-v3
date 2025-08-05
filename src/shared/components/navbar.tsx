@@ -4,21 +4,24 @@ import { useEffect, useRef, useState } from "react";
 import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/react";
 import { Menu, Moon, X } from "lucide-react";
 import Logo from "./logo";
-import Link from "next/link";
+import { AnimatePresence, motion } from "motion/react";
 import { navbarData } from "../constants/navbar.contant";
 import { Button } from "@/components/ui/button";
 import gsap from "gsap";
+import styles from "../assets/navStyles.module.scss";
+import Link from "next/link";
 import HambugerMenu from "./hambugerMenu";
+import CurvedMenu from "./curvedMenu";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const textRef = useRef<HTMLSpanElement | null>(null);
   const charsRef = useRef<NodeListOf<HTMLSpanElement> | null>(null);
 
   useEffect(() => {
     if (textRef.current) {
-      // Split text into individual character spans
       const text = textRef.current;
       const chars = text.textContent?.split("") || [];
       text.innerHTML = chars
@@ -33,14 +36,14 @@ export default function Navbar() {
   const handleMouseEnter = () => {
     if (charsRef.current) {
       gsap.from(charsRef.current, {
-        y: (i: number) => Math.sin(i * 0.5) * 20, // Sinusoidal wave effect
+        y: (i: number) => Math.sin(i * 0.5) * 20,
         duration: 1,
-        stagger: 0.05, // Stagger each character
+        stagger: 0.05,
         ease: "elastic.out",
       });
 
       gsap.to(charsRef.current, {
-        y: 0, // Reset position
+        y: 0,
         duration: 1,
         stagger: 0.05,
         ease: "elastic.out",
@@ -51,12 +54,36 @@ export default function Navbar() {
   const handleMouseLeave = () => {
     if (charsRef.current) {
       gsap.to(charsRef.current, {
-        y: 0, // Reset position
+        y: 0,
         duration: 1,
         stagger: 0.05,
         ease: "elastic.out",
       });
     }
+  };
+
+  const menu = {
+    open: {
+      width: "480px",
+      height: "650px",
+      borderRadius: "25px",
+      top: "-25px",
+      right: "-25px",
+      transition: { duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1] },
+    },
+    closed: {
+      width: "80px",
+      height: "80px",
+      borderRadius: "50px",
+      top: "0px",
+      right: "0px",
+      transition: {
+        duration: 0.75,
+        delay: 0.35,
+        type: "tween",
+        ease: [0.76, 0, 0.24, 1],
+      },
+    },
   };
 
   return (
@@ -68,33 +95,23 @@ export default function Navbar() {
         <div className="flex lg:flex-1">
           <Logo />
         </div>
-        <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          {navbarData.map((item, index) => (
-            <Link href={item.href} key={index} className="text-lg">
-              <span>{item.title}</span>
-            </Link>
-          ))}
-        </PopoverGroup>
         <div className="hidden lg:flex items-center gap-x-3 lg:flex-1 lg:justify-end">
-          <Button
-            variant={"outline"}
-            size={"icon"}
-            className="h-[60px] w-[60px] rounded-full shadow-none font-semibold text-2xl border-none backdrop-blur-sm hover:bg-white duration-300 ease-in hover:text-white dark:hover:text-black cursor-pointer flex items-center flex-row gap-x-2 overflow-hidden"
-          >
-            <Moon size={32} strokeWidth={3} />
-          </Button>
-          <Button
-            variant={"outline"}
-            size={"lg"}
-            className="rounded-full shadow-none !h-[60px] w-[200px] font-semibold text-2xl border-3 dark:border-white border-black !bg-transparent cursor-pointer flex items-center hover:backdrop-blur-sm flex-row gap-x-2 overflow-hidden"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <span ref={textRef} className="tracking-wide">
-              Contact{" "}
-            </span>
-          </Button>
-          <HambugerMenu />
+          <div className={styles.header}>
+            <HambugerMenu
+              isActive={isActive}
+              toggleMenu={() => {
+                setIsActive(!isActive);
+              }}
+            />
+            <motion.div
+              className={styles.menu}
+              variants={menu}
+              animate={isActive ? "open" : "closed"}
+              initial="closed"
+            >
+              <AnimatePresence>{isActive && <CurvedMenu />}</AnimatePresence>
+            </motion.div>
+          </div>
         </div>
         <div className="flex lg:hidden">
           <button
