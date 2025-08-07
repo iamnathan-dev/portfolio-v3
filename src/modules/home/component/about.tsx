@@ -21,7 +21,7 @@ development.`;
         <div className="flex flex-row">
           <div className="basis-1/2">
             <ScrollSection
-              speed={2}
+              speed={-5}
               direction="horizontal"
               className="flex flex-row items-center gap-x-5"
             >
@@ -37,7 +37,7 @@ development.`;
           </div>
 
           <div className="basis-2/3">
-            <ScrollSection speed={2}>
+            <ScrollSection speed={-5}>
               <Paragraph paragraph={paragraph} />
 
               <div className="mt-[4rem]">
