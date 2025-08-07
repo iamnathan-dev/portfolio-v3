@@ -1,9 +1,12 @@
+import { ScrollSection } from "@/shared/components/scrollSection";
+import About from "./component/about";
 import Hero from "./component/her";
 
 export const HomePage = () => {
   return (
-    <main>
+    <section>
       <Hero />
-    </main>
+      <About />
+    </section>
   );
 };

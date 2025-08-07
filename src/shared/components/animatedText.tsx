@@ -29,12 +29,12 @@ const AnimatedHoverText = ({
             transition={{
               duration: duration || DURATION,
               ease: "easeInOut",
-              delay: stagger || STAGGER * i,
+              delay: (stagger || STAGGER) * i,
             }}
             className="inline-block"
             key={i}
           >
-            {l}
+            {l === " " ? "\u00A0" : l}
           </motion.span>
         ))}
       </div>
@@ -51,14 +51,14 @@ const AnimatedHoverText = ({
               },
             }}
             transition={{
-              duration: DURATION,
+              duration: duration || DURATION,
               ease: "easeInOut",
-              delay: STAGGER * i,
+              delay: (stagger || STAGGER) * i,
             }}
             className="inline-block"
             key={i}
           >
-            {l}
+            {l === " " ? "\u00A0" : l}
           </motion.span>
         ))}
       </div>

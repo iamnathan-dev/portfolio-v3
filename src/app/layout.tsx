@@ -3,7 +3,7 @@ import { Funnel_Display } from "next/font/google";
 import "./globals.css";
 import "@/shared/assets/styles/globalStyles.scss";
 import Navbar from "@/shared/components/navbar";
-import { ThemeProvider } from "next-themes";
+import ThemeProviderWrapper from "@/providers/themeprovider";
 
 const funnelDisplay = Funnel_Display({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -25,12 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${funnelDisplay.className} antialiased dark:bg-[#161616] overflow-x-hidden`}
+        className={`${funnelDisplay.className} antialiased bg-background overflow-x-hidden`}
       >
-        <ThemeProvider>
+        <ThemeProviderWrapper>
           <Navbar />
           {children}
-        </ThemeProvider>
+        </ThemeProviderWrapper>
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "./logo";
 import { AnimatePresence, motion } from "motion/react";
 import styles from "../assets/navStyles.module.scss";
@@ -9,9 +9,16 @@ import CurvedMenu from "./curvedMenu";
 import { Button } from "@/components/ui/button";
 import { Moon } from "lucide-react";
 import AnimatedHoverText from "./animatedText";
+import { useTheme } from "next-themes";
 
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const menu = {
     open: {
@@ -37,8 +44,9 @@ export default function Navbar() {
     },
   };
 
-  const DURATION = 0.25;
-  const STAGGER = 0.025;
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <header className="bg-transparent absolute w-full z-50 top-0 left-0 right-0">
@@ -47,8 +55,12 @@ export default function Navbar() {
         <div className="flex flex-row gap-x-5">
           <Button
             variant={"outline"}
+            onClick={() => {
+              console.log("clicked");
+              setTheme(theme === "dark" ? "light" : "dark");
+            }}
             size={"icon"}
-            className="h-[60px] w-[60px] rounded-full shadow-none font-semibold text-2xl border-none bg-transparent hover:bg-white duration-300 ease-in hover:text-white backdrop-blur-sm dark:hover:text-black cursor-pointer flex items-center flex-row gap-x-2 overflow-hidden"
+            className="h-[60px] w-[60px] rounded-full shadow-none font-semibold text-2xl !border-none bg-transparent hover:bg-white duration-300 ease-in hover:text-white backdrop-blur-sm dark:hover:text-black cursor-pointer flex items-center flex-row gap-x-2 overflow-hidden"
           >
             <Moon size={32} strokeWidth={3} />
           </Button>

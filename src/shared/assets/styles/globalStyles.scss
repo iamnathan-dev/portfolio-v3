@@ -8,6 +8,14 @@
   animation: pulse 3s ease-in-out infinite;
 }
 
+.parallex {
+  background: url("../img/parallex_img.webp");
+  background-size: 150%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 @keyframes bounce {
   0%,
   100% {

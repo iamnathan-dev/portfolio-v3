@@ -1,4 +1,4 @@
-interface NavbarDataProps {
+export interface NavbarDataProps {
   title: string;
   href: string;
 }

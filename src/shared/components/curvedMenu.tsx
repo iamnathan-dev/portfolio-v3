@@ -1,5 +1,5 @@
 import styles from "../assets/navStyles.module.scss";
-import { motion } from "framer-motion"; // Corrected import from 'motion/react' to 'framer-motion'
+import { motion } from "framer-motion";
 import { footerLinks, navbarData } from "../constants/navbar.contant";
 import Image from "next/image";
 import NavStar from "../assets/svg/navStar.svg";
