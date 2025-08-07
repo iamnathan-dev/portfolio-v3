@@ -37,7 +37,7 @@ development.`;
           </div>
 
           <div className="basis-2/3">
-            <ScrollSection speed={-5}>
+            <ScrollSection speed={4}>
               <Paragraph paragraph={paragraph} />
 
               <div className="mt-[4rem]">

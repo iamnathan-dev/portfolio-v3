@@ -40,6 +40,8 @@ export interface ScrollSectionProps {
   speed?: number;
   direction?: "vertical" | "horizontal";
   sticky?: boolean;
+  once?: boolean;
   target?: string;
   call?: string;
+  zoom?: boolean;
 }

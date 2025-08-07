@@ -54,7 +54,11 @@ const Hero = () => {
   );
 
   return (
-    <ScrollSection speed={-2} className="h-screen relative overflow-hidden">
+    <ScrollSection
+      once={true}
+      speed={-2}
+      className="h-screen relative overflow-hidden"
+    >
       <Image
         src={AtroHelmet}
         alt="astro helmet"

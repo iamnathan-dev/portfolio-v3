@@ -12,11 +12,13 @@ export const ScrollSection: React.FC<ScrollSectionProps> = ({
   sticky = false,
   target,
   call,
+  once = false,
+  zoom = false,
   ...props
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, {
-    once: true,
+    once,
     margin: "-10% 0px -10% 0px",
   });
 
@@ -25,14 +27,16 @@ export const ScrollSection: React.FC<ScrollSectionProps> = ({
       opacity: 0,
       y: direction === "vertical" ? 50 : 0,
       x: direction === "horizontal" ? 50 : 0,
+      scale: zoom ? 1.05 : 1,
     },
     visible: {
       opacity: 1,
       y: 0,
       x: 0,
+      scale: zoom ? 1 : 1,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.25, 0.25, 0.75],
+        ease: [0.4, 0, 0.2, 1],
       },
     },
   };

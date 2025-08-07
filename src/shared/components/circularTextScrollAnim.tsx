@@ -9,7 +9,7 @@ const RotatingText = () => {
   const { scrollYProgress } = useScroll();
 
   // Transform scroll progress to rotation degrees with smooth spring animation
-  const rawRotate = useTransform(scrollYProgress, [0, 1], [0, 60 * 3]);
+  const rawRotate = useTransform(scrollYProgress, [0, 1], [0, 90 * 3]);
   const rotate = useSpring(rawRotate, {
     stiffness: 100,
     damping: 30,
