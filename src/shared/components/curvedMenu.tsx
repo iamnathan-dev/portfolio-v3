@@ -103,7 +103,7 @@ export default function CurvedMenu() {
               exit="exit"
               className={`text-black w-[65%] ml-auto text-xl text-right`}
             >
-              👋 Nice to see you! <br /> I'm Nathaniel Joseph, a skilled
+              👋 Nice to see you! <br /> I&apos;m Nathaniel Joseph, a skilled
               frontend developer based in Abuja, Nigeria
             </motion.p>
           </div>

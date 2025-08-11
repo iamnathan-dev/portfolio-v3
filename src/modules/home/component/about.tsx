@@ -40,21 +40,40 @@ development.`;
             <ScrollSection speed={4}>
               <Paragraph paragraph={paragraph} />
 
-              <div className="mt-[4rem]">
-                <motion.div
-                  initial="initial"
-                  className="w-fit"
-                  whileHover="hovered"
-                >
-                  <Button
-                    variant={"outline"}
-                    size={"lg"}
-                    style={{ lineHeight: 2 }}
-                    className="rounded-full shadow-none mr-[80px] !h-[60px] w-[200px] font-semibold text-2xl border-3 dark:border-white border-black relative cursor-pointer bg-transparent gap-x-2 overflow-hidden"
+              <div className="mt-[4rem] flex flex-row gap-x-5 items-center">
+                <ScrollSection speed={5}>
+                  <motion.div
+                    initial="initial"
+                    className="w-fit"
+                    whileHover="hovered"
                   >
-                    <AnimatedHoverText>Say Hello</AnimatedHoverText>
-                  </Button>
-                </motion.div>
+                    <Button
+                      variant={"outline"}
+                      size={"lg"}
+                      style={{ lineHeight: 2 }}
+                      className="rounded-full shadow-none !h-[60px] w-[200px] font-semibold text-2xl text-black relative cursor-pointer bg-primary gap-x-2 overflow-hidden"
+                    >
+                      <AnimatedHoverText>My Work!</AnimatedHoverText>
+                    </Button>
+                  </motion.div>
+                </ScrollSection>
+
+                <ScrollSection speed={5}>
+                  <motion.div
+                    initial="initial"
+                    className="w-fit"
+                    whileHover="hovered"
+                  >
+                    <Button
+                      variant={"outline"}
+                      size={"lg"}
+                      style={{ lineHeight: 2 }}
+                      className="rounded-full shadow-none !h-[60px] w-[200px] font-semibold text-2xl border-3 dark:border-white border-black relative cursor-pointer bg-transparent gap-x-2 overflow-hidden"
+                    >
+                      <AnimatedHoverText>Download CV</AnimatedHoverText>
+                    </Button>
+                  </motion.div>
+                </ScrollSection>
               </div>
             </ScrollSection>
           </div>
